@@ -13,7 +13,14 @@ export default {
     IconHomeFill,
     IconExplore,
     IconExploreFill
-  }
+  },
+  data: () => ({
+    attrs: {
+      class: 'mb-6',
+      boilerplate: true,
+      elevation: 2,
+    },
+  }),
 }
 </script>
 
@@ -37,7 +44,16 @@ export default {
           <IconExplore v-else />
         </router-link>
         <router-link to="/profile">
-          Profile
+          <v-avatar size="30" v-if="0 === 0">
+            <img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                alt="John"
+            >
+          </v-avatar>
+          <v-skeleton-loader v-else
+              v-bind="attrs"
+              type="avatar"
+          ></v-skeleton-loader>
         </router-link>
       </nav>
     </Container>

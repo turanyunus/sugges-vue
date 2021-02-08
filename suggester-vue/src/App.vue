@@ -1,6 +1,7 @@
 <script>
 import Header from '@/components/Header'
 import Container from "@/components/Container";
+
 export default {
   name: 'App',
   components: {
@@ -13,7 +14,6 @@ export default {
 <template>
   <div class="app">
     <Header />
-
     <main class="main">
       <Container>
         <router-view />
