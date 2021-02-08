@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/home'
 
 Vue.use(VueRouter)
 
@@ -11,9 +11,21 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/profile'),
+    children: [
+      {
+        path: '',
+        name: 'ProfilePost',
+        component: () => import('../views/profile/post')
+      },
+      {
+        path: 'activity',
+        name: 'ProfileActivity',
+        component: () => import('../views/profile/activity')
+      }
+    ]
   }
 ]
 
