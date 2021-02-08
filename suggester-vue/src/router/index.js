@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home'
+import Explore from '../views/explore'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,11 @@ const routes = [
         component: () => import('../views/profile/activity')
       }
     ]
+  },
+  {
+    path: '/explore',
+    name: 'Explore',
+    component: Explore
   }
 ]
 
