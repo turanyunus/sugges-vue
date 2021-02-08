@@ -1,26 +1,42 @@
-<template>
-  <div class="home">
-    <h1>Home</h1>
-    <CustomText>Merhaba Dünya</CustomText>
-    <IconHome />
-  </div>
-</template>
-
 <script>
-import CustomText from "@/components/CustomText";
-import IconHome from '../../assets/icons/home.svg'
+import CustomText from '@/components/CustomText'
 
 export default {
   name: 'Home',
   components: {
-    CustomText,
-    IconHome
+    CustomText
   }
 }
 </script>
 
+<template>
+  <div class="home">
+    <div class="timeline">
+      <CustomText>Post</CustomText>
+    </div>
+    <div class="sidebar">
+      <CustomText>SideBar</CustomText>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.a1{
-  color: rgb(var(--b6a));
+.home {
+  max-width: 605px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--t) {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 295px;
+    grid-gap: 30px;
+  }
+}
+.sidebar {
+  display: none;
+  @media (--t) {
+    display: block;
+  }
 }
 </style>

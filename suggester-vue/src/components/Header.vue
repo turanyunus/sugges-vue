@@ -56,7 +56,6 @@ export default {
 }
 .header-inner {
   height: var(--header-height);
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,8 +67,8 @@ export default {
 }
 .logo {
   font-size: 1.6rem;
+  font-weight: bold;
 }
-
 .search {
   display: none;
   @media (--t) {
@@ -80,13 +79,12 @@ export default {
       height: 28px;
       border: 1px solid rgb(var(--b6a));
       background-color: rgb(var(--b3f));
-      border-radius: 3px;
+      border-radius: 4px;
       padding-left: 20px;
       padding-right: 20px;
     }
   }
 }
-
 .navigation {
   z-index: 90;
   position: fixed;
@@ -99,11 +97,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-
   @media (--t) {
     height: auto;
-    position: static;
     border: 0;
+    position: static;
     justify-content: flex-end;
     a {
       margin-left: 20px;
