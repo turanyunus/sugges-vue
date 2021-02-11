@@ -10,7 +10,7 @@ export default {
   props: {
     src: {
       type: String,
-      default : "https://cdn.vuetifyjs.com/images/john.jpg"
+      default: 'https://cdn.vuetifyjs.com/images/john.jpg'
     },
     alt: {
       type: String
@@ -23,13 +23,13 @@ export default {
 </script>
 
 <style scoped>
-.avatar{
+.avatar {
   padding: 2px;
   border-radius: 999px;
   display: inline-flex;
-  background: linear-gradient(219deg, rgba(184,63,140,1), rgba(237,158,90,1) 100% );
+  background: linear-gradient(219deg, rgba(184, 63, 140, 1), rgba(237, 158, 90, 1) 100%);
 
-  img{
+  img {
     border-radius: inherit;
     border: 2px solid white;
   }

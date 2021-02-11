@@ -24,7 +24,9 @@ export default {
   <header class="header">
     <Container class="header-inner">
       <!-- logo -->
-      <router-link to="/" class="logo">Suggester</router-link>
+      <router-link to="/" class="logo">
+        <p style="font-family: Roboto, sans-serif ">Suggester</p>
+      </router-link>
       <!-- search -->
       <form class="search">
         <input type="text" placeholder="Ara..." />
