@@ -10,7 +10,7 @@ export default {
   props: {
     src: {
       type: String,
-      default: 'https://cdn.vuetifyjs.com/images/john.jpg'
+      default: 'https://via.placeholder.com/900'
     },
     alt: {
       type: String
