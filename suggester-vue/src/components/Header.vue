@@ -4,23 +4,19 @@ import IconHomeFill from '@/assets/icons/home-fill.svg'
 import IconExplore from '@/assets/icons/explore.svg'
 import IconExploreFill from '@/assets/icons/explore-fill.svg'
 import Container from '@/components/Container'
+import Avatar from '@/components/Avatar'
 
 export default {
   name: 'Header',
   components: {
+    Avatar,
     Container,
     IconHome,
     IconHomeFill,
     IconExplore,
     IconExploreFill
   },
-  data: () => ({
-    attrs: {
-      class: 'mb-6',
-      boilerplate: true,
-      elevation: 2,
-    },
-  }),
+  data: () => ({})
 }
 </script>
 
@@ -44,16 +40,7 @@ export default {
           <IconExplore v-else />
         </router-link>
         <router-link to="/profile">
-          <v-avatar size="30" v-if="0 === 0">
-            <img
-                src="https://cdn.vuetifyjs.com/images/john.jpg"
-                alt="John"
-            >
-          </v-avatar>
-          <v-skeleton-loader v-else
-              v-bind="attrs"
-              type="avatar"
-          ></v-skeleton-loader>
+          <Avatar size="26" />
         </router-link>
       </nav>
     </Container>

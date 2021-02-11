@@ -1,9 +1,11 @@
 <script>
 import CustomText from '@/components/CustomText'
+import Avatar from "@/components/Avatar";
 
 export default {
   name: 'Home',
   components: {
+    Avatar,
     CustomText
   }
 }
@@ -13,6 +15,7 @@ export default {
   <div class="home">
     <div class="timeline">
       <CustomText>Post</CustomText>
+      <Avatar :size="40" />
     </div>
     <div class="sidebar">
       <CustomText>SideBar</CustomText>
