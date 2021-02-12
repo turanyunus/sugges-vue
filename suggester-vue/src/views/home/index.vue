@@ -1,12 +1,12 @@
 <script>
-import Post from '@/components/Post'
 import CustomCategoryList from "@/components/CustomCategoryList";
+import Tabs from "@/components/tabs/tabs";
 
 export default {
   name: 'Home',
   components: {
-    CustomCategoryList,
-    Post
+    Tabs,
+    CustomCategoryList
   }
 }
 </script>
@@ -14,7 +14,7 @@ export default {
 <template>
   <div class="home">
     <div class="timeline">
-      <Post />
+      <Tabs />
     </div>
     <div class="sidebar">
       <CustomCategoryList />

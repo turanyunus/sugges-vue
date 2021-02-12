@@ -14,6 +14,9 @@ export default {
     IconMore,
     IconLike,
     IconComment
+  },
+  props: {
+    isImage: { type: Boolean, default: false }
   }
 }
 </script>
@@ -41,8 +44,14 @@ export default {
     </header>
 
     <!-- media -->
-    <div class="post-media">
-      <img src="https://via.placeholder.com/900" alt="" />
+    <div class="post-media section">
+      <img src="https://via.placeholder.com/900" alt="" v-if="isImage === true" />
+      <CustomText tag="p" style="padding: 20px 0; font-size: 17px" v-else>
+        İnsan niçin yaşadığını bilmezse günü gününe yaşamakla kalıyor; günün
+        geçmesini, gecenin gelmesini beklemekten başka zevki olmuyor. Bugün
+        nasıl yaşadım, sorusuna cevap vermeden uykuya dalıyor, ertesi gün gene
+        aynı hayat.
+      </CustomText>
     </div>
 
     <!-- action -->
@@ -60,7 +69,7 @@ export default {
 
     <!-- view count -->
     <div class="view-count section">
-      <custom-text tag="b">1.345 beğenme</custom-text>
+      <CustomText tag="b">1.345 beğenme</CustomText>
     </div>
 
     <!-- post info -->
@@ -69,7 +78,8 @@ export default {
         <CustomText tag="b" style="margin-right: 5px"
           >turanyunus
           <CustomText tag="span" style="font-weight: 400"
-            >Bazı insanlar gördükçe büyümediğimi hissediyorum. Bazı insanlar gördükçe büyümediğimi hissediyorum.
+            >Bazı insanlar gördükçe büyümediğimi hissediyorum. Bazı insanlar
+            gördükçe büyümediğimi hissediyorum.
           </CustomText>
         </CustomText>
       </div>
@@ -77,7 +87,9 @@ export default {
 
     <!-- comment list count -->
     <div class="comment-list-count section">
-      <CustomText tag="p" style="color: gray; font-weight: 400">4 yorumun tümünü gör</CustomText>
+      <CustomText tag="p" style="color: gray; font-weight: 400"
+        >4 yorumun tümünü gör</CustomText
+      >
     </div>
 
     <!-- comment list -->
@@ -88,7 +100,9 @@ export default {
 
     <!-- datetime -->
     <div class="datetime-info section">
-      <CustomText tag="p" style="color: gray; font-weight: 500; text-transform: uppercase; font-size: 11px"
+      <CustomText
+        tag="p"
+        style="color: gray; font-weight: 500; text-transform: uppercase; font-size: 11px"
         >22 dakika önce</CustomText
       >
     </div>
@@ -112,7 +126,7 @@ export default {
 .post {
   border-radius: 3px;
   border: 1px solid rgb(var(--b6a));
-  margin-bottom: 300px;
+  margin: 30px
 }
 .header {
   height: 60px;
