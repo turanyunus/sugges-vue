@@ -27,6 +27,6 @@ export default {
 
 <style>
   .main{
-    padding-top: 10px;
+
   }
 </style>
