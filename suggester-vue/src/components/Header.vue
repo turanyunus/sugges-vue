@@ -27,6 +27,9 @@ export default {
     <Container class="header-inner">
       <!-- logo -->
       <router-link to="/" class="logo">
+        <v-icon medium color="purple darken-2" style="margin-right: 20px">
+          mdi-dialpad
+        </v-icon>
         <p style="font-family: Roboto, sans-serif ">Suggester</p>
       </router-link>
 
@@ -78,6 +81,8 @@ export default {
   }
 }
 .logo {
+  display: flex;
+  align-items: center;
   font-size: 1.4rem;
   font-weight: 600;
   color: #4a4a4a;
