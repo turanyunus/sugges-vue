@@ -5,7 +5,7 @@ import IconExplore from '@/assets/icons/explore.svg'
 import IconExploreFill from '@/assets/icons/explore-fill.svg'
 import Container from '@/components/Container'
 import Avatar from '@/components/Avatar'
-import NotLogInComponent from "@/components/NotLogInComponent";
+import NotLogInComponent from '@/components/NotLogInComponent'
 
 export default {
   name: 'Header',
@@ -35,8 +35,10 @@ export default {
       </form>
       <!-- navigation -->
 
-      <nav class="navigation">
+      <nav class="navigation" v-if="1 === 1">
         <NotLogInComponent />
+      </nav>
+      <nav class="navigation" v-else>
         <router-link to="/">
           <IconHomeFill v-if="$route.name === 'Home'" />
           <IconHome v-else />

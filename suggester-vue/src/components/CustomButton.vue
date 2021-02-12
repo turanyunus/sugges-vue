@@ -4,6 +4,7 @@ export default {
   props: {
     border: { type: [String, Number], default: 1 },
     borderColor: { type: String, default: '#CCC' },
+    borderRadius: { type: [String, Number], default: 2 },
     disableBorderColor: { type: String, default: '#CCC' },
     disabled: { type: Boolean, default: false },
     disableColor: { type: String, default: '#eee' },
@@ -15,7 +16,7 @@ export default {
     cursor: { type: String, default: 'pointer' },
     padding: { type: [String, Number], default: '5px 10px' },
     margin: { type: [String, Number], default: 1 },
-    borderRadius: { type: [String, Number], default: 2 }
+    fontWeight: { type: [String], default: "500" },
   },
   data() {
     return { isMouseOver: false }
@@ -30,20 +31,21 @@ export default {
         color: this._color,
         cursor: this._cursor,
         padding: this._padding,
-        margin: this._margin
+        margin: this._margin,
+        fontWeight: this._fontWeight
       }
     },
     _border() {
       if (this.isNumeric(this.border)) {
         return this.border + ' px'
       }
-      return this.color
+      return this.border
     },
     _borderColor() {
       return this.disabled ? this.disableBorderColor : this.borderColor
     },
     _borderRadius() {
-      if (this.isNumeric(this.borderRadius)) return this.margin + ' px'
+      if (this.isNumeric(this.borderRadius)) return this.borderRadius + ' px'
       return this.borderRadius
     },
     _background() {
@@ -64,6 +66,9 @@ export default {
     _margin() {
       if (this.isNumeric(this.margin)) return this.margin + ' px'
       return this.margin
+    },
+    _fontWeight(){
+      return this.fontWeight
     }
   },
   methods: {
