@@ -29,12 +29,13 @@ export default {
       <router-link to="/" class="logo">
         <p style="font-family: Roboto, sans-serif ">Suggester</p>
       </router-link>
+
       <!-- search -->
       <form class="search">
         <input type="text" placeholder="Ara..." />
       </form>
-      <!-- navigation -->
 
+      <!-- navigation -->
       <nav class="navigation" v-if="1 === 1">
         <NotLogInComponent />
       </nav>
@@ -77,8 +78,9 @@ export default {
   }
 }
 .logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #4a4a4a;
 }
 .search {
   display: none;
