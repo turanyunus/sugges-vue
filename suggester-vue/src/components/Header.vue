@@ -5,10 +5,12 @@ import IconExplore from '@/assets/icons/explore.svg'
 import IconExploreFill from '@/assets/icons/explore-fill.svg'
 import Container from '@/components/Container'
 import Avatar from '@/components/Avatar'
+import NotLogInComponent from "@/components/NotLogInComponent";
 
 export default {
   name: 'Header',
   components: {
+    NotLogInComponent,
     Avatar,
     Container,
     IconHome,
@@ -32,7 +34,9 @@ export default {
         <input type="text" placeholder="Ara..." />
       </form>
       <!-- navigation -->
+
       <nav class="navigation">
+        <NotLogInComponent />
         <router-link to="/">
           <IconHomeFill v-if="$route.name === 'Home'" />
           <IconHome v-else />

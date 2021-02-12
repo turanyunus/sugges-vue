@@ -85,7 +85,7 @@ export default {
   padding-top: 20px;
   border-radius: 3px;
   border: 1px solid rgb(var(--b6a));
-  margin-bottom: 300px;
+  margin-bottom: 30px;
 }
 .title{
   font-size: 15px;

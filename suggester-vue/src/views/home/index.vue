@@ -18,6 +18,9 @@ export default {
     </div>
     <div class="sidebar">
       <CustomCategoryList />
+      <CustomCategoryList />
+      <CustomCategoryList />
+      <CustomCategoryList />
     </div>
   </div>
 </template>
