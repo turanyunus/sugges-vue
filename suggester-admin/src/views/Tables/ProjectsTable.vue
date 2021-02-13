@@ -10,7 +10,7 @@
           </h3>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">See all</base-button>
+          <base-button type="success" size="m" @click="handleAddCategory">Ekle</base-button>
         </div>
       </div>
     </div>
@@ -22,27 +22,22 @@
                   tbody-classes="list"
                   :data="tableData">
         <template slot="columns">
-          <th>Project</th>
-          <th>Budget</th>
-          <th>Status</th>
-          <th>Users</th>
-          <th>Completion</th>
+          <th>Id</th>
+          <th>İsim</th>
+          <th>Durumu</th>
+          <th>Ana Kategori</th>
+          <th>Alt Kategori</th>
           <th></th>
         </template>
 
         <template slot-scope="{row}">
-          <th scope="row">
-            <div class="media align-items-center">
-              <a href="#" class="avatar rounded-circle mr-3">
-                <img alt="Image placeholder" :src="row.img">
-              </a>
-              <div class="media-body">
-                <span class="name mb-0 text-sm">{{row.title}}</span>
-              </div>
+          <td class="category-id">
+            {{row.id}}
+          </td>
+          <td class="media-body">
+            <div class="media-body">
+              <span class="name mb-0 text-sm font-weight-bold">{{row.title}}</span>
             </div>
-          </th>
-          <td class="budget">
-            {{row.budget}}
           </td>
           <td>
             <badge class="badge-dot mr-4" :type="row.statusType">
@@ -51,49 +46,14 @@
             </badge>
           </td>
           <td>
-            <div class="avatar-group">
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                <img alt="Image placeholder" src="img/theme/team-1-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
-                <img alt="Image placeholder" src="img/theme/team-2-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
-                <img alt="Image placeholder" src="img/theme/team-3-800x800.jpg">
-              </a>
-              <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
-                <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
-              </a>
-            </div>
+            {{row.mainCategory}}
           </td>
-
           <td>
-            <div class="d-flex align-items-center">
-              <span class="completion mr-2">{{row.completion}}%</span>
-              <div>
-                <base-progress :type="row.statusType"
-                               :show-percentage="false"
-                               class="pt-0"
-                               :value="row.completion"/>
-              </div>
-            </div>
+            {{row.subMainCategory}}
           </td>
-
           <td class="text-right">
-            <base-dropdown class="dropdown"
-                           position="right">
-              <a slot="title" class="btn btn-sm btn-icon-only text-light" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-v"></i>
-              </a>
-
-              <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </template>
-            </base-dropdown>
+            <base-button type="primary" size="m">Düzenle</base-button>
           </td>
-
         </template>
 
       </base-table>
@@ -103,8 +63,29 @@
          :class="type === 'dark' ? 'bg-transparent': ''">
       <base-pagination total="30"></base-pagination>
     </div>
+    <modal :show="!this.showModal">
+      <div class="row">
 
+      <base-input alternative=""
+                  label="Kategori Adı"
+                  input-classes="form-control-alternative"
+      /></div>
+      <div class="row">
+        <div class="col-md-12">
+          <base-dropdown>
+        <base-button slot="title" type="primary" class="dropdown-toggle">
+          Kategori Tipi
+        </base-button>
+        <a class="dropdown-item" href="#">Ana</a>
+        <a class="dropdown-item" href="#">Alt</a>
+      </base-dropdown>
+        </div>
+      </div>
+      <base-button type="success" size="m" @click="handleAddCategory">Ekle</base-button>
+      <base-button type="success" size="m" @click="handleAddCategory">Kapat</base-button>
+    </modal>
   </div>
+
 </template>
 <script>
   export default {
@@ -119,49 +100,25 @@
       return {
         tableData: [
           {
-            img: 'img/theme/bootstrap.jpg',
-            title: 'Argon Design System',
-            budget: '$2500 USD',
-            status: 'pending',
-            statusType: 'warning',
-            completion: 60
-          },
-          {
-            img: 'img/theme/angular.jpg',
-            title: 'Angular Now UI Kit PRO',
-            budget: '$1800 USD',
-            status: 'completed',
+            id: '12312312312312',
+            title: 'Dizi',
+            status: 'aktif',
             statusType: 'success',
-            completion: 100
-          },
-          {
-            img: 'img/theme/sketch.jpg',
-            title: 'Black Dashboard',
-            budget: '$3150 USD',
-            status: 'delayed',
-            statusType: 'danger',
-            completion: 72
-          },
-          {
-            img: 'img/theme/react.jpg',
-            title: 'React Material Dashboard',
-            budget: '$4400 USD',
-            status: 'on schedule',
-            statusType: 'info',
-            completion: 90
-          },
-          {
-            img: 'img/theme/vue.jpg',
-            title: 'Vue Paper UI Kit PRO',
-            budget: '$2200 USD',
-            status: 'completed',
-            statusType: 'success',
-            completion: 100
+            mainCategory: 'Evet',
+            subMainCategory: 'Hayır',
           }
-        ]
+        ],
+        showModal: false
+      }
+    },
+    methods: {
+      handleAddCategory: function () {
+        if (this.showModal) return this.showModal = false
+        return this.showModal = true
       }
     }
   }
 </script>
-<style>
+<style scoped>
+
 </style>
