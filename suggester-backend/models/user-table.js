@@ -45,22 +45,17 @@ const UserSchema = new Schema({
     },
     role : {
         type:Number,
-        required:true,
         default:0
     },
     createdOn : {
         type:Date,
-        required:true,
         default:Date.now()
     },
-    createdBy : {
-        type:Number,
-        required:true,
-        default:0
-    },
+    createdBy: Schema.Types.ObjectId,
     updatedOn : {
         type:Date
     },
+    updatedBy: Schema.Types.ObjectId
 
 });
 

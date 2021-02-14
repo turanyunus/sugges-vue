@@ -9,16 +9,11 @@ const CategorySchema = new Schema({
     minlength: [2, '(`{MINLENGTH}`) karakterden kücük olamaz'],
     unique: true
   },
-  mainCategory: {
-    type: Number,
-    required: true,
-    default: 0
+  subCategoryStatus: {
+    type: Boolean,
+    default: false
   },
-  subCategory: {
-    type: Number,
-    required: true,
-    default: 0
-  },
+  mainCategoryId: Schema.Types.ObjectId,
   createdOn: {
     type: Date,
     default: Date.now
