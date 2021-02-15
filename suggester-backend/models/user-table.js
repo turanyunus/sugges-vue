@@ -36,17 +36,12 @@ const UserSchema = new Schema({
         unique:true
     },
     birthDate : {
-        type:Date,
-        min:1940,
-        max:2040
+        type:Date
     },
     imageURL : {
         type:String
     },
-    role : {
-        type:Number,
-        default:0
-    },
+    role : Schema.Types.ObjectId,
     createdOn : {
         type:Date,
         default:Date.now()
@@ -55,8 +50,11 @@ const UserSchema = new Schema({
     updatedOn : {
         type:Date
     },
-    updatedBy: Schema.Types.ObjectId
-
+    updatedBy: Schema.Types.ObjectId,
+    status:{
+        type:Boolean,
+        default: true
+    }
 });
 
 module.exports = mongoose.model('user',UserSchema);

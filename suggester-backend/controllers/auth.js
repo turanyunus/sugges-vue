@@ -2,7 +2,7 @@ const user = require('../models/user-table')
 const jwt = require('jsonwebtoken')
 
 const auth = async (req, res) => {
-  res.render('auth', { title: 'Express' })
+  res.json({ title: 'Express' })
 }
 const login = async (req, res) => {
   const { username, password } = req.body

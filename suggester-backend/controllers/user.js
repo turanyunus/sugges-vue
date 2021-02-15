@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
 }
 const insert = async (req, res) => {
     const users = new user(req.body)
-
+    console.log(users)
     const promise = users.save()
     promise
         .then((data) => {

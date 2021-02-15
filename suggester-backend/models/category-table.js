@@ -18,7 +18,11 @@ const CategorySchema = new Schema({
     type: Date,
     default: Date.now
   },
-  createdBy: Schema.Types.ObjectId
+  createdBy: Schema.Types.ObjectId,
+  status: {
+    type: Boolean,
+    default: true
+  },
 })
 
 module.exports = mongoose.model('category', CategorySchema)
